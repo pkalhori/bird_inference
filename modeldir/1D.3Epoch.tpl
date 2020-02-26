@@ -1,7 +1,7 @@
 //Number of population samples (demes)
 1
 //Population effective sizes (number of genes)
-NCUR
+NF
 //Sample sizes
 SAMPLE_SIZE
 //Growth rates : negative growth implies population expansion
@@ -10,8 +10,8 @@ SAMPLE_SIZE
 0
 //historical event: time, source, sink, migrants, new size, new growth rate, migr. matrix 2 historical event
 2 historical events
-TBOT 0 0 0 RESBOT 0 0
-TENDBOT 0 0 0 RESENDBOT 0 0
+TB 0 0 0 RES2 0 0
+TF 0 0 0 RES1 0 0
 //Number of independent loci [chromosome]
 1 0
 //Per chromosome: Number of linkage blocks
