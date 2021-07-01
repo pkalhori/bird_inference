@@ -1,7 +1,7 @@
 #! /bin/bash
 #$ -cwd
 #$ -l h_rt=20:00:00,h_data=1G
-#$ -N FscBirds
+#$ -N FscBirds3Epoch
 #$ -o /u/scratch/p/pkalhori/fastsimcoal/reports
 #$ -e /u/scratch/p/pkalhori/fastsimcoal/reports
 #$ -m abe
@@ -10,12 +10,12 @@
 
 muts="4.6e-9"
 samples="38"
-models="1D.2Epoch.LongT" 
+models="1D.3Epoch" 
 rundate=`date +%Y%m%d`
 #this is the string of populations to loop through
 # wd stands for "working directory"
 wd=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/bird_inference
-md=$wd/modeldir
+gitdir=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/github_repos/bird_inference
 fsc=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/software/fsc26_linux64/fsc26
 for model in $models
 #iterate through each model
@@ -31,9 +31,9 @@ pop=All.$sample
 header=${model}_${pop}_${mut}_$rundate
 mkdir $header
 cd $header
-cp $md/$model.tpl ${model}_${pop}.tpl
-cp $md/$model.est ${model}_${pop}.est
-cp $wd/SFSdir/${pop}_MAFpop0.obs ${model}_${pop}_MAFpop0.obs
+cp $gitdir/modeldir/$model.tpl ${model}_${pop}.tpl
+cp $gitdir/modeldir/$model.est ${model}_${pop}.est
+cp $gitdir/SFSdir/${pop}_MAFpop0.obs ${model}_${pop}_MAFpop0.obs
 mkdir $wd/$header/run_${SGE_TASK_ID}
 cd $wd/$header/run_${SGE_TASK_ID}
 cp $wd/$header/${model}_${pop}.tpl $wd/$header/${model}_${pop}.est $wd/$header/${model}_${pop}_MAFpop0.obs ./
