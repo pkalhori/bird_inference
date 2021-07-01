@@ -1,0 +1,16 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NF unif 10 1000000 output
+1 NB unif 10 1000000 output
+1 NANC unif 1000 2000000 output
+1 TB unif 10 1000000 output
+1 TF unif 10 1000000 output
+
+[RULES]
+TB>TF
+[COMPLEX PARAMETERS]
+0 RES1 = NB/NF output
+0 RES2 = NANC/NB output

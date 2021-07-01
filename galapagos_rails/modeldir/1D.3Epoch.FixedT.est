@@ -1,0 +1,13 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NCUR unif 10 1000000 output
+1 TCON1 unif 10 10000 output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+0 RES = 6000000/NCUR output
+1 TCON2 = TCON1+900000 output
