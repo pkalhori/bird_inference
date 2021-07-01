@@ -1,0 +1,16 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all N are in number of haploid individuals
+1 NCUR unif 10000 2000000 output
+1 TCON unif 1 500 output
+1 NANC unif 100000 12000000 output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+0 RESIZE = NANC/NCUR output
+0 RATIO_ANC_CUR = NANC/NCUR output
+0 RT = log(RATIO_ANC_CUR) output
+0 R1 = RT/TCON output
