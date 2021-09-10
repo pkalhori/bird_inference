@@ -1,10 +1,13 @@
 wd=/u/scratch/p/pkalhori/rails/inference
-models="1D.1Epoch 1D.2Epoch"
+models="1D.2Epoch"
 pops="PIN"
-muts="4.6e-9"
-rundate=20210703
+muts="1.5e-8"
+rundate=20210909
+contraction_times="5 10 100 500 1000 10000 100000 400000"
 for model in $models
 do
+#for contraction_time in $contraction_times
+#do
 for pop in $pops
 do
 for mut in $muts
@@ -22,3 +25,4 @@ done
 done
 done
 done
+#done
