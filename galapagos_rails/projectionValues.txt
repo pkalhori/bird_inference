@@ -1,0 +1,5 @@
+population	ProjectionValueHaploids
+PIN	14
+SAN	12
+ISA	34
+STC	14

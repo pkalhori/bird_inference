@@ -6,12 +6,12 @@
 #$ -e /u/scratch/p/pkalhori/rails/fastsimcoal
 #$ -m abe
 #$ -M pkalhori
-#$ -t 1-50:1
+#$ -t 1-2:1
 
 muts="1.5e-8"
 #samples="14"
 contraction_times="5 10 100 500 1000 10000 100000 400000"
-pops
+#pops
 models="1D.2Epoch.FixedT" 
 rundate=`date +%Y%m%d`
 #this is the string of populations to loop through
@@ -23,16 +23,16 @@ fsc=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/software/fsc26_linux64/f
 outdir=/u/scratch/p/pkalhori/rails/inference/
 mkdir -p $outdir
 for model in $models
+do
 for contraction_time in $contraction_times
 do
 #iterate through each model
-do
 for mut in $muts
 do
 ##try bothh mutatioon rates
 #for sample in $samples
 #iterate through different SFS sizes
-do
+#do
 cd $outdir
 pop=PIN
 header=${model}.${contraction_time}gen_${pop}_${mut}_$rundate
@@ -52,7 +52,7 @@ $fsc -t ${model}_${pop}.tpl -n100000 -m -e ${model}_${pop}.est -M -L 50 -q
 done
 done
 done
-done
+#done
 cd $wd
 sleep 2m 
 
