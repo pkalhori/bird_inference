@@ -10,7 +10,7 @@ SAMPLE_SIZE
 0
 //historical event: time, source, sink, migrants, new size, new growth rate, migr. matrix
 1 historical event
-40 0 0 0 RESIZE 0 0
+CONTRACTION_TIME 0 0 0 RESIZE 0 0
 //Number of independent loci [chromosome]
 1 0
 //Per chromosome: Number of linkage blocks
