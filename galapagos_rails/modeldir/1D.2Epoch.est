@@ -3,9 +3,9 @@
 [PARAMETERS]
 //#isInt? #name #dist.#min #max
 //all N are in number of haploid individuals
-1 NCUR unif 10000 2000000 output
-1 TCON unif 1 500 output
-1 NANC unif 100000 12000000 output
+1 NCUR unif 1000 200000 output
+1 TCON unif 10 10000 output
+1 NANC unif 5000 1000000 output
 
 [RULES]
 

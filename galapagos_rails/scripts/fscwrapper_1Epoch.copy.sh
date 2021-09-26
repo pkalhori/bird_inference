@@ -10,9 +10,9 @@
 
 muts="1.5e-8"
 #samples="14"
-contraction_times="5 10 100 500 1000 10000 100000 400000"
+#contraction_times="5 10 100 500 1000 10000 100000 400000"
 #pops
-models="1D.2Epoch.FixedT" 
+models="1D.3Epoch" 
 rundate=`date +%Y%m%d`
 #this is the string of populations to loop through
 # wd stands for "working directory"
@@ -24,8 +24,8 @@ outdir=/u/scratch/p/pkalhori/rails/inference/
 mkdir -p $outdir
 for model in $models
 do
-for contraction_time in $contraction_times
-do
+#for contraction_time in $contraction_times
+#do
 #iterate through each model
 for mut in $muts
 do
@@ -35,7 +35,7 @@ do
 #do
 cd $outdir
 pop=PIN
-header=${model}.${contraction_time}_${pop}_${mut}_$rundate
+header=${model}_${pop}_${mut}_$rundate
 mkdir $header
 cd $header
 cp $md/$model.tpl ${model}_${pop}.tpl
@@ -47,11 +47,11 @@ cp $outdir/$header/${model}_${pop}.tpl $outdir/$header/${model}_${pop}.est $outd
 ss=`grep $pop $wd/projectionValues.txt|awk '{print$2}'`
 sed -i "s/MUT/$mut/g" ${model}_${pop}.tpl
 sed -i "s/SAMPLE_SIZE/$ss/g" ${model}_${pop}.tpl
-sed -i "s/CONTRACTION_TIME/$contraction_time/g" ${model}_${pop}.tpl
+#sed -i "s/CONTRACTION_TIME/$contraction_time/g" ${model}_${pop}.tpl
 $fsc -t ${model}_${pop}.tpl -n100000 -m -e ${model}_${pop}.est -M -L 50 -q
 done
 done
-done
+#done
 #done
 cd $wd
 sleep 2m 

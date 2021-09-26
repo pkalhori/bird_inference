@@ -2,7 +2,7 @@ wd=/u/scratch/p/pkalhori/rails/inference
 models="1D.2Epoch"
 pops="PIN"
 muts="1.5e-8"
-rundate=20210909
+rundate=20210910
 contraction_times="5 10 100 500 1000 10000 100000 400000"
 for model in $models
 do
