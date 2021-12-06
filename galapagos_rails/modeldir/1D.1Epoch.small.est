@@ -3,11 +3,9 @@
 [PARAMETERS]
 //#isInt? #name #dist.#min #max
 //all N are in number of haploid individuals
-1 NCUR unif 1000 2000000 output
-1 TCON unif 500 50000 output
-1 NANC unif 10000 12000000 output
+1 NE unif 10 1200000 output
+
 
 [RULES]
 
 [COMPLEX PARAMETERS]
-0 RESIZE = NANC/NCUR output

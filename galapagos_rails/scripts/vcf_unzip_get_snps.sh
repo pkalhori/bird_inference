@@ -1,6 +1,6 @@
 #! /bin/bash
 #$ -cwd
-#$ -l h_rt=10:00:00,h_data=10G
+#$ -l h_rt=4:00:00,h_data=4G
 #$ -N vcfUnzip
 #$ -o /u/scratch/p/pkalhori
 #$ -e /u/scratch/p/pkalhori

@@ -10,7 +10,7 @@
 
 muts="1.5e-8"
 #samples="14"
-contraction_times="5 10 100 500 1000 10000 100000 400000"
+contraction_times="5 10 100 500 1000 10000 100000"
 #pops
 models="1D.2Epoch.FixedT" 
 rundate=`date +%Y%m%d`

@@ -12,7 +12,7 @@ muts="1.5e-8"
 #samples="14"
 #contraction_times="5 10 100 500 1000 10000 100000 400000"
 #pops
-models="1D.3Epoch" 
+models="1D.2Epoch" 
 rundate=`date +%Y%m%d`
 #this is the string of populations to loop through
 # wd stands for "working directory"
