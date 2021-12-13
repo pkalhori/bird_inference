@@ -1,8 +1,8 @@
 ####### Parse EasySFS output
-projection_date=20210530
+projection_date=20211213
 wd=/u/scratch/p/pkalhori/rails/easySFS/projection_preview/$projection_date
 
-for i in {1..35}
+for i in {1..2}
 do
 
 easyOut=neutral.snp_$i.easySFS.projPreview.txt
