@@ -26,7 +26,6 @@ vcfdir=/u/scratch/p/pkalhori/rails/VCFs_Missing_sites_Test
 scriptdir=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/github_repos/otter_exome/galapagos_rails/scripts
 #vcfdir=/u/project/rwayne/software/rails/VCF_FILES
 #pops=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/github_repos/otter_exome/galapagos_rails/pinta.PCA.txt
-pops="PIN"
 popfile=/u/home/p/pkalhori/project-klohmueldata/pooneh_data/github_repos/otter_exome/galapagos_rails/pinta.PCA.txt
 # this has admixed in it , but they aren't in pop file
 easySFS=$scriptdir/easySFS.abModified.3.noInteract.Exclude01Sites.HetFiltering.20181121.py 
@@ -41,6 +40,7 @@ easySFS=$scriptdir/easySFS.abModified.3.noInteract.Exclude01Sites.HetFiltering.2
 ## choose your projections: choosing for now: 
 # CA,AK,AL,COM,KUR 
 #projections="12,14,16,16,12" # may change these after lab meeting
+pops="PIN"
 projections="14"
 ### NOTE: projection values must be in same order as populations are in your popFile (this isn't ideal -- at some point I am going to modify the easySFS script)
 # note that order is CA,AK,AL,COM,KUR 
@@ -70,4 +70,7 @@ $easySFS -i $vcfdir/${snpVCF} -p $popfile -a -v --proj $projections -f -o $outdi
 # then do for SYN and MIS (eventually)
 ########## get counts of monomorphic sites to add to the SFSes ############
 python $scriptdir/getMonomorphicProjectionCounts.1D.2DSFS.py --vcf $vcfdir/${allVCF} --popMap $popFile --proj $projections --popIDs PIN --outdir $outdir
+
+ # this script add monomorphic sites to 0 bin of fsc sfses. doesn't add them to dadi SFSes because those sites are masked anyway. 
+Rscript $scriptdir/easySFS_addInMonomorphicSites.R --dataDir $outdir --popFile $popFile --class neutral # will write them out in your data dir in new directories
 
